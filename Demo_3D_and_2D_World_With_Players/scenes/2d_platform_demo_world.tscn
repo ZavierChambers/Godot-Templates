@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctm1xofe7qps2"]
+
+[ext_resource type="Texture2D" uid="uid://bwmfgbxswi0ob" path="res://icon.svg" id="1_t6wj7"]
+[ext_resource type="PackedScene" uid="uid://bkf17emb5sveh" path="res://Assets/2DPlayers/PlatformPlayer/platform_player.tscn" id="2_b8511"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ult87"]
+size = Vector2(127.600006, 36)
+
+[node name="2dPlatformDemoWorld" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(-105, 525)
+scale = Vector2(10, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Ground"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_t6wj7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(64, 19)
+shape = SubResource("RectangleShape2D_ult87")
+
+[node name="PlatformPlayer" parent="." instance=ExtResource("2_b8511")]
+position = Vector2(205, 488)
